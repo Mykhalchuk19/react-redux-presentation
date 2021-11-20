@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3>JavaScript</h3>
+          <a href="js-1.html"
+            >1 - Data types, variables, operators, cycles, arrays</a
+          ><br />
+          <a href="js-2.html"
+            >2 - Objects, functions, date&time, prototypes, classes, error
+            handling, promises</a
+          ><br />
+          <a href="js-3.html"
+            >3 - DOM, Events, Browser, Event Loop, interview tasks</a
+          >
+        </section>
+
+        <section>
+          <h3>React</h3>
+          <a href="react-1.html"
+            >1 - Introduction, JSX, styles, props, state, useState</a
+          ><br />
+          <a href="react-2.html">2 - Lifecycle, useEffect, events, lists</a
+          ><br />
+          <a href="react-3.html"
+            >3 - Forms, refs, requests, propTypes, defaultProps</a
+          ><br />
+          <a href="react-4.html">4 - HOC, React Router, Suspense</a><br />
+          <a href="react-5.html">5 - Context, Portal, Hooks, FP</a><br />
+        </section>
+
+        <section>
+          <h3>Redux</h3>
+          <a href="redux-1.html">1 - Essentials, redux-actions</a><br />
+          <a href="redux-2.html">2 - Redux libraries and middlewares</a><br />
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        hash: true,
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/highlight/highlight.js" },
+          { src: "plugin/notes/notes.js", async: true },
+        ],
+      });
+    </script>
+  </body>
+</html>
