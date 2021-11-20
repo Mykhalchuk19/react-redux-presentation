@@ -413,144 +413,57 @@
 </code></pre>
           </section>
         </section>
-
         <section>
           <section>
-            <h3>Відловлювання помилок</h3>
+            <h3>Контекст виконання</h3>
           </section>
 
           <section>
-            <h4>try/catch</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  try {
-    // launching rockets...
-    // something went wrong!
-  } catch (e) {
-    console.log(e);
-  }
-</code></pre>
-          </section>
+            <pre>
+              <code class="js" data-line-numbers data-trim>
+// глобальний контекст виконання
 
-          <section>
-            <h4>finally</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  try {
-    // some code here...
-  } catch (e) {
-    // error handling here...
-  } finally {
-    // will always execute
-  }
-</code></pre>
-          </section>
+function firstFunc () {
+    // новий контекст виконання
+    return 'first';
+}
 
-          <section>
-            <h4>throw</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  try {
-    // some code here...
-    if (somethingHappened) throw "Something really bad happened...";
-  } catch (e) {
-    // error handling here...
-  } 
-</code></pre>
+function secondFunc () {
+    // новий контекст виконання
+    return firstFunc();
+}
+
+secondFunc();
+
+// глобальний контекст виконання
+
+const thirdFunc = () => {
+   // навколишній контекст виконання (в даному випадку глобальний)
+   return 'third';
+ }
+
+thirdFunc();
+              </code>
+            </pre>
           </section>
         </section>
-
         <section>
           <section>
-            <h3>JSON</h3>
+            <h3>Lexical environment</h3>
           </section>
 
           <section>
-            <h4>Вигляд</h4>
-            <pre><code class="json" data-line-numbers data-trim>
-  {
-    users: [
-      {name: "Steve", age: 22},
-      {name: "George", age: 33},
-      {name: "Sophie", age: 16}
-    ],
-    version: "5.05"
-  }
-</code></pre>
-          </section>
-
-          <section>
-            <h4>JSON.parse, JSON.stringify</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  const jsonString = JSON.stringify({
-    users: [
-      {name: "Steve", age: 22},
-      {name: "George", age: 33},
-      {name: "Sophie", age: 16}
-    ],
-    version: "5.05"
-  });
-  // строка
-
-  const getDataBack = JSON.parse(jsonString);
-</code></pre>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h3>Promise</h3>
-          </section>
-
-          <section>
-            <h4>Оголошення</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  const goodPromise = new Promise((res, rej) => {
-    setTimeout(() => res("done"), 1000);
-  });
-
-  const badPromise = new Promise((res, rej) => {
-    setTimeout(() => rej("BAD ERROR"), 1000);
-  });
-</code></pre>
-          </section>
-
-          <section>
-            <h4>then, catch</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  const justPromise = new Promise((res, rej) => {
-    setTimeout(() => res("done"), 1000);
-  })
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
-</code></pre>
-          </section>
-
-          <section>
-            <h4>Promise.all, Promise.allSettled</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  const justPromise = new Promise((res, rej) => {
-    setTimeout(() => res("done"), 1000);
-  });
-
-  const promises = [justPromise, justPromise, justPromise];
-
-  Promise.all(promises);
-  Promise.allSettled(promises);
-</code></pre>
-          </section>
-
-          <section>
-            <h4>async/await</h4>
-            <pre><code class="js" data-line-numbers data-trim>
-  async function showData() {
-    try {
-      const data = await new Promise((res, rej) => {
-        setTimeout(() => res("done"), 1000);
-      });
-      console.log(data);
-    } catch (e) {
-      console.error(e);
+            <pre>
+              <code class="js" data-line-numbers data-trim>
+// global environment
+function printMyName() {
+    // lexical environment функції printMyName
+    function() {
+        console.log('My name')
     }
-  }
-</code></pre>
+}
+              </code>
+            </pre>
           </section>
         </section>
       </div>
